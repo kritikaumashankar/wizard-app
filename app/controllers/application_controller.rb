@@ -1,7 +1,11 @@
 class ApplicationController < ActionController::API
   include DeviseTokenAuth::Concerns::SetUserByToken
 
+<<<<<<< HEAD
 
+=======
+  before_action :configure_permitted_parameters, if: :devise_controller?
+>>>>>>> Initial Commit
   before_action :authenticate_user!, if: proc {
     begin
       request.controller_class.parent == Api
@@ -13,6 +17,12 @@ class ApplicationController < ActionController::API
 
 
   private
+<<<<<<< HEAD
+=======
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
+  end
+>>>>>>> Initial Commit
     def render_error(model, type = 'array', status = 422)
       case type
         when 'string'

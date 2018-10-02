@@ -9,6 +9,10 @@ import Home from './Home';
 import ProtectedRoute from './ProtectedRoute';
 import AuthRoute from './AuthRoute';
 import FetchUser from './FetchUser';
+<<<<<<< HEAD
+=======
+import Profile from './Profile';
+>>>>>>> Initial Commit
 
 class App extends Component {
   render() {
@@ -18,7 +22,12 @@ class App extends Component {
         <Flash />
         <FetchUser>
           <Switch>
+<<<<<<< HEAD
             <Route exact path='/' component={Home} />
+=======
+            <ProtectedRoute exact path='/' component={Home} />
+            <ProtectedRoute exact path="/profile" component={Profile} />
+>>>>>>> Initial Commit
             <AuthRoute exact path='/login' component={Login} />
             <AuthRoute exact path='/register' component={Register} />
             <Route component={NoMatch} />

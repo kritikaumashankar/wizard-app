@@ -5,6 +5,7 @@ import { registerUser } from '../reducers/user';
 import { setFlash } from '../reducers/flash';
 
 class Register extends Component {
+<<<<<<< HEAD
   state = { email: '', password: '', passwordConfirmation: '' };
 
   handleSubmit = (e) => {
@@ -13,6 +14,21 @@ class Register extends Component {
     const { dispatch, history } = this.props;
     if (password === passwordConfirmation) {
       dispatch(registerUser({ email, password, passwordConfirmation }, history));
+=======
+  state = { 
+    email: '', 
+    password: '', 
+    passwordConfirmation: '',
+    name: '',
+  };
+
+  handleSubmit = (e) => {
+    e.preventDefault();
+    const { name, email, password, passwordConfirmation } = this.state;
+    const { dispatch, history } = this.props;
+    if (password === passwordConfirmation) {
+      dispatch(registerUser({ name, email, password, passwordConfirmation }, history));
+>>>>>>> Initial Commit
     } else dispatch(setFlash('Passwords do not match!, please try again', 'red'));
   }
 
@@ -22,13 +38,30 @@ class Register extends Component {
   }
 
   render() {
+<<<<<<< HEAD
     const { email, password, passwordConfirmation } = this.state;
+=======
+    const { name, email, password, passwordConfirmation } = this.state;
+>>>>>>> Initial Commit
 
     return (
       <Segment basic>
         <Header as='h1' textAlign='center'>Register Component</Header>
         <Form onSubmit={this.handleSubmit}>
           <Form.Field>
+<<<<<<< HEAD
+=======
+            <label htmlFor="name">Name</label>
+            <input
+              id="name"
+              placeholder="name"
+              required
+              value={name}
+              onChange={this.handleChange}
+            />
+          </Form.Field>
+          <Form.Field>
+>>>>>>> Initial Commit
             <label htmlFor='email'>Email</label>
             <input
               id='email'
